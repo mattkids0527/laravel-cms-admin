@@ -28,6 +28,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // 選單權限管理
         Route::get('menu-permissions', \App\Livewire\Admin\MenuPermissions\MenuPermissionIndex::class)->name('menu-permissions.index');
+
+        // 外觀設定
+        Route::get('settings/appearance', \App\Livewire\Admin\Settings\AppearanceSettings::class)->name('settings.appearance');
     });
 
 });

@@ -62,5 +62,30 @@ class AdminMenuSeeder extends Seeder
                 array_merge($item, ['parent_id' => $systemGroup->id, 'is_active' => true])
             );
         }
+
+        // 設定（群組，無路由）
+        $settingsGroup = AdminMenu::firstOrCreate(
+            ['name' => '設定', 'parent_id' => null, 'route_name' => null],
+            [
+                'parent_id'  => null,
+                'name'       => '設定',
+                'route_name' => null,
+                'icon'       => 'settings',
+                'sort_order' => 99,
+                'is_active'  => true,
+            ]
+        );
+
+        AdminMenu::firstOrCreate(
+            ['route_name' => 'admin.settings.appearance'],
+            [
+                'parent_id'  => $settingsGroup->id,
+                'name'       => '外觀設定',
+                'route_name' => 'admin.settings.appearance',
+                'icon'       => 'palette',
+                'sort_order' => 1,
+                'is_active'  => true,
+            ]
+        );
     }
 }

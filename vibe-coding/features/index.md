@@ -84,6 +84,12 @@
 
 ## 正式資料
 
+### Confirmed Features
+
+| feature_id | status | title | prompt_priority | discussion_file | promoted_spec_refs | related_milestone_refs | updated_at |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| FEAT-001 | confirmed | 後台外觀偏好設定 | high | vibe-coding/features/FEAT-001.md | - | - | 2026-05-10 |
+
 ### Brief Note 固定提示
 
 - `曾討論：<title>。後續要討論 / 保留 / 棄用？`
