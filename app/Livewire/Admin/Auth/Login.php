@@ -42,7 +42,7 @@ class Login extends Component
         $user->update(['last_login_at' => now()]);
 
         session()->regenerate();
-        $this->redirect(route('admin.dashboard'), navigate: false);
+        $this->redirect(route('admin.dashboard'), navigate: true);
     }
 
     public function render()

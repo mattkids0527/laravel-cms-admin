@@ -47,6 +47,7 @@
 | M002 | 2 | high | completed | false | 帳號與角色管理系統 | todo:0, in_progress:0, blocked:0, done:12, skipped:0 | - | 2026-05-10 | 2026-05-10 | 02h:00m | 0.00 | vibe-coding/milestones/tasks/M002.md |
 | M003 | 3 | high | completed | false | 後台選單權限系統 | todo:0, in_progress:0, blocked:0, done:10, skipped:0 | - | 2026-05-10 | 2026-05-10 | 01h:30m | 0.00 | vibe-coding/milestones/tasks/M003.md |
 | M004 | 4 | high | completed | false | 後台外觀偏好設定 | todo:0, in_progress:0, blocked:0, done:5, skipped:0 | - | 2026-05-10 | 2026-05-10 | 01h:00m | 0.00 | vibe-coding/milestones/tasks/M004.md |
+| M005 | 5 | high | completed | false | 前端工具鏈遷移（Vite + Tailwind Build） | todo:0, in_progress:0, blocked:0, done:8, skipped:0 | - | 2026-05-10 | 2026-05-10 | 00h:30m | 0.00 | vibe-coding/milestones/tasks/M005.md |
 
 ## 下一步提示規則
 

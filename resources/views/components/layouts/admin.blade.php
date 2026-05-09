@@ -25,8 +25,7 @@
         .layout-header { height: 4rem; display: flex; align-items: center; padding-left: 1.5rem; padding-right: 1.5rem; flex-shrink: 0; }
         .layout-content { flex: 1 1 0%; overflow-y: auto; padding: 1.5rem; }
     </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class' }</script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{--
         SPA 換頁情境（navigate:true）：Alpine 已啟動，alpine:init 不會再觸發，直接呼叫 Alpine.store()。
         首次載入情境：Alpine 尚未啟動，透過 alpine:init 事件註冊。
