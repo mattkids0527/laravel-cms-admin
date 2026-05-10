@@ -50,7 +50,7 @@
 | M005 | 5 | high | completed | false | 前端工具鏈遷移（Vite + Tailwind Build） | todo:0, in_progress:0, blocked:0, done:8, skipped:0 | - | 2026-05-10 | 2026-05-10 | 00h:30m | 0.00 | vibe-coding/milestones/tasks/M005.md |
 | M006 | 6 | high | completed | false | 響應式後台佈局（Mobile Responsive） | todo:0, in_progress:0, blocked:0, done:4, skipped:0 | - | 2026-05-10 | 2026-05-10 | 00h:30m | 0.00 | vibe-coding/milestones/tasks/M006.md |
 | M007 | 7 | high | completed | false | Blade UI 元件庫建立 | todo:0, in_progress:0, blocked:0, done:11, skipped:0 | - | 2026-05-10 | 2026-05-10 | 01h:00m | 0.00 | vibe-coding/milestones/tasks/M007.md |
-| M008 | 8 | high | planned | false | 現有 Views 重構（使用元件庫） | todo:13, in_progress:0, blocked:0, done:0, skipped:0 | - | - | - | 00h:00m | 0.00 | vibe-coding/milestones/tasks/M008.md |
+| M008 | 8 | high | completed | false | 現有 Views 重構（使用元件庫） | todo:0, in_progress:0, blocked:0, done:9, skipped:1 | - | 2026-05-10 | 2026-05-10 | 01h:00m | 0.00 | vibe-coding/milestones/tasks/M008.md |
 
 ## 下一步提示規則
 
