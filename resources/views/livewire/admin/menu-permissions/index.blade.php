@@ -1,7 +1,18 @@
-<div class="flex gap-6">
+@push('styles')
+<style>
+    .perm-layout { flex-direction: row; }
+    .perm-aside  { width: 14rem; flex-shrink: 0; }
+    @media (max-width: 767px) {
+        .perm-layout { flex-direction: column; }
+        .perm-aside  { width: 100%; }
+    }
+</style>
+@endpush
+
+<div class="flex perm-layout gap-6">
 
     {{-- 左：角色列表 --}}
-    <div class="w-56 flex-shrink-0">
+    <div class="perm-aside">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
             <div class="px-4 py-3 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600 text-sm font-medium text-gray-600 dark:text-gray-300">選擇角色</div>
             <ul class="divide-y divide-gray-100 dark:divide-gray-700">
