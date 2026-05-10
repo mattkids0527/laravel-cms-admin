@@ -1,39 +1,27 @@
 <div class="max-w-2xl">
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+    <x-ui.card>
         <form wire:submit="save" class="space-y-5">
 
+            <x-ui.form-input label="姓名" name="name" wire:model="name" required />
+            <x-ui.form-input label="Email" name="email" type="email" wire:model="email" required />
+
+            {{-- 密碼欄位含提示文字，手動組 label --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">姓名 <span class="text-red-500">*</span></label>
-                <input wire:model="name" type="text" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 @error('name') border-red-400 @enderror">
-                @error('name') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    新密碼 <span class="text-gray-400 dark:text-gray-500 font-normal text-xs">（留空則不變更）</span>
+                </label>
+                <x-ui.form-input name="password" type="password" wire:model="password" />
             </div>
 
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email <span class="text-red-500">*</span></label>
-                <input wire:model="email" type="email" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 @error('email') border-red-400 @enderror">
-                @error('email') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
-            </div>
+            <x-ui.form-input label="確認新密碼" name="password_confirmation" type="password" wire:model="password_confirmation" />
 
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">新密碼 <span class="text-gray-400 dark:text-gray-500 font-normal text-xs">（留空則不變更）</span></label>
-                <input wire:model="password" type="password" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 @error('password') border-red-400 @enderror">
-                @error('password') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
-            </div>
+            <x-ui.form-select label="狀態" name="status" wire:model="status">
+                <option value="pending">待審核</option>
+                <option value="active">啟用</option>
+                <option value="inactive">停用</option>
+            </x-ui.form-select>
 
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">確認新密碼</label>
-                <input wire:model="password_confirmation" type="password" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">狀態</label>
-                <select wire:model="status" class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <option value="pending">待審核</option>
-                    <option value="active">啟用</option>
-                    <option value="inactive">停用</option>
-                </select>
-            </div>
-
+            {{-- 角色：自己不可修改自己，保留 raw HTML 處理 disabled 樣式 --}}
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     角色 <span class="text-red-500">*</span>
@@ -60,16 +48,10 @@
             </div>
 
             <div class="flex items-center gap-3 pt-2">
-                <button type="submit"
-                        class="px-6 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700">
-                    儲存變更
-                </button>
-                <a href="{{ route('admin.users.index') }}"
-                   class="px-6 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600">
-                    取消
-                </a>
+                <x-ui.button variant="primary" size="lg" type="submit">儲存變更</x-ui.button>
+                <x-ui.button variant="secondary" size="lg" href="{{ route('admin.users.index') }}">取消</x-ui.button>
             </div>
 
         </form>
-    </div>
+    </x-ui.card>
 </div>

@@ -10,7 +10,7 @@
     <div class="max-w-lg space-y-6">
 
         {{-- 顯示主題 --}}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <x-ui.card>
             <h2 class="text-base font-semibold text-gray-800 dark:text-gray-100 mb-4">顯示主題</h2>
             <div class="flex gap-3">
                 <button
@@ -30,10 +30,10 @@
                     暗色模式
                 </button>
             </div>
-        </div>
+        </x-ui.card>
 
         {{-- 側邊選單 --}}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <x-ui.card>
             <h2 class="text-base font-semibold text-gray-800 dark:text-gray-100 mb-4">側邊選單</h2>
             <div class="flex gap-3">
                 <button
@@ -53,10 +53,10 @@
                     收合顯示
                 </button>
             </div>
-        </div>
+        </x-ui.card>
 
         {{-- 重設偏好 --}}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <x-ui.card>
             <h2 class="text-base font-semibold text-gray-800 dark:text-gray-100 mb-2">重設偏好</h2>
             <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">將主題重設為亮色、側邊選單重設為展開。</p>
             <button
@@ -64,7 +64,7 @@
                 class="px-5 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition">
                 一鍵全部重設
             </button>
-        </div>
+        </x-ui.card>
 
     </div>
 </div>
