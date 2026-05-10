@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? config('app.name') }} - 後台管理</title>
     {{-- 同步讀取 localStorage，在頁面首次繪製前預套用偏好，避免閃爍 --}}
-    <script>
+    <script data-navigate-once>
         if (localStorage.getItem('admin_theme') === 'dark') {
             document.documentElement.classList.add('dark');
         }
@@ -95,10 +95,10 @@
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{--
-        SPA 換頁情境（navigate:true）：Alpine 已啟動，alpine:init 不會再觸發，直接呼叫 Alpine.store()。
         首次載入情境：Alpine 尚未啟動，透過 alpine:init 事件註冊。
+        data-navigate-once：Livewire SPA 導航時不重新執行此 script，保留既有 store 狀態。
     --}}
-    <script>
+    <script data-navigate-once>
     (function () {
         function registerStore() {
             Alpine.store('appearance', {
@@ -151,12 +151,18 @@
         }
 
         if (window.Alpine) {
-            // SPA 換頁：Alpine 已啟動，直接註冊
             registerStore();
         } else {
-            // 首次載入：等待 alpine:init
             document.addEventListener('alpine:init', registerStore);
         }
+
+        // Livewire SPA 導航後，<html> attributes 會被重設，dark class 因此遺失。
+        // 每次導航完成後重新呼叫 applyTheme() 補回正確的 class。
+        document.addEventListener('livewire:navigated', function () {
+            if (window.Alpine) {
+                Alpine.store('appearance').applyTheme();
+            }
+        });
     })();
     </script>
     @stack('styles')
