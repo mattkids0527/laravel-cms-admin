@@ -161,6 +161,7 @@
         document.addEventListener('livewire:navigated', function () {
             if (window.Alpine) {
                 Alpine.store('appearance').applyTheme();
+                Alpine.store('appearance').closeMobile();
             }
         });
     })();
@@ -221,7 +222,7 @@
                             </p>
                             <div class="space-y-1">
                                 @foreach ($group->children as $item)
-                                    <a href="{{ route($item->route_name) }}"
+                                    <a href="{{ route($item->route_name) }}" wire:navigate
                                        x-data="{ tooltipVisible: false }"
                                        @mouseenter="if (!$store.appearance.sidebarOpen && !$store.appearance.mobileOpen) tooltipVisible = true"
                                        @mouseleave="tooltipVisible = false"
@@ -245,7 +246,7 @@
                             </div>
                         </div>
                     @else
-                        <a href="{{ route($group->route_name) }}"
+                        <a href="{{ route($group->route_name) }}" wire:navigate
                            x-data="{ tooltipVisible: false }"
                            @mouseenter="if (!$store.appearance.sidebarOpen && !$store.appearance.mobileOpen) tooltipVisible = true"
                            @mouseleave="tooltipVisible = false"

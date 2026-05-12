@@ -82,3 +82,29 @@ Login 引用：`->layout('components.layouts.guest')`
 
 - 新增後台功能時，依職責歸入對應模組，或用 `php artisan module:make` 建立新模組
 - 新模組記得：① 建立 ServiceProvider ② routes 加 `'web'` middleware
+
+---
+
+## 補充修正（2026-05-12）
+
+### 修復側邊欄選單點擊閃爍
+
+**問題**：點擊側邊欄選單時頁面有白畫面閃爍。
+
+**根因**：`admin.blade.php` 的側邊欄 `<a>` 連結使用普通 HTML 導航（完整頁面重載），未使用 Livewire 3 SPA 導航。
+
+**修正**：`resources/views/components/layouts/admin.blade.php`
+
+1. 兩處側邊欄 `<a>` 標籤加上 `wire:navigate`：
+   - 群組子選單連結（`$item->route_name`）
+   - 獨立選單連結（`$group->route_name`）
+
+2. `livewire:navigated` 事件監聽器補上 `closeMobile()`，手機版導航後自動收合側邊欄：
+   ```javascript
+   document.addEventListener('livewire:navigated', function () {
+       if (window.Alpine) {
+           Alpine.store('appearance').applyTheme();
+           Alpine.store('appearance').closeMobile(); // 新增
+       }
+   });
+   ```
