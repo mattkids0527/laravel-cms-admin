@@ -209,7 +209,7 @@
             @auth('admin')
             <nav class="flex-1 px-2 py-6 space-y-4 overflow-y-auto">
                 @php
-                    $visibleMenus = app(\App\Services\AdminMenuService::class)->getVisibleMenus(auth('admin')->user());
+                    $visibleMenus = app(\Modules\Menu\App\Services\AdminMenuService::class)->getVisibleMenus(auth('admin')->user());
                 @endphp
 
                 @foreach ($visibleMenus as $group)
